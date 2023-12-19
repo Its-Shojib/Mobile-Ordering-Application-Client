@@ -8,10 +8,6 @@ const Navbar = () => {
 
     let links = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/available-food'>Available Food</NavLink></li>
-        <li><NavLink to='/add-food'>Add Food</NavLink></li>
-        <li><NavLink to='/manage-my-food'>Manage My Food</NavLink></li>
-        <li><NavLink to='/my-food-request'>My Food Request</NavLink></li>
     </>
     return (
         <div>
@@ -26,8 +22,8 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="flex justify-center items-center gap-2">
-                        <Link><img className="w-16 h-16" src="/log.png" alt="" /></Link>
-                        <h2 className="text-white text-xl md:text-3xl font-bold">Meal Miracle</h2>
+                        <Link><img className="w-16 h-16" src="/Main Logo.png" alt="" /></Link>
+                        <h2 className="text-white text-xl md:text-3xl font-bold">Galaxy Store</h2>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
