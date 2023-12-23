@@ -21,5 +21,11 @@
 # Additional Features are:
 * **Dynamic Login-Logout:** Firebase Login-Logout Added as additional features... 
 
+
+# How to Run:
+ -It is very simple to run this project. As I implemented firebase auth, so you need to those auth file. You can implement this from your firebase also.
+ -In the Backend, MongoDB username and password is needed for run this. you can create your and add this database [Click here](https://github.com/Its-Shojib/Mobile-Ordering-Application-Client/blob/main/public/Mobiles.json) and connect to mongoDB.
+
+
 # Technology Used:
 * **React Js , Node Js, MongoDB, Express Js, Firebase, Tailwind**
