@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import useLoadData from '../../Hooks/useLoadData';
 import MobileCard from './MobileCard';
+import { Helmet } from 'react-helmet-async';
+
 
 const Home = () => {
-    const [mobileCollection] = useLoadData();
+    const [mobileCollection] = useLoadData();  //Collect data from backend
+
+    //Filter Option
     const [filters, setFilters] = useState({
         searchQuery: '',
         minPrice: '',
@@ -15,7 +19,7 @@ const Home = () => {
         operatingSystems: [],
     });
 
-    // Function to filter mobiles based on filters
+    // All filter mobiles based on filters
     const filteredMobiles = mobileCollection?.filter((mobile) => {
         const meetsSearchCriteria = mobile.name.toLowerCase().includes(filters.searchQuery.toLowerCase());
 
@@ -46,6 +50,7 @@ const Home = () => {
         );
     });
 
+    //All checkbox filter using one function
     const handleCheckboxChange = (filterType, value) => {
         setFilters((prevFilters) => ({
             ...prevFilters,
@@ -55,9 +60,12 @@ const Home = () => {
         }));
     };
 
+    //All select filter ucsing one function
     const handleSelectChange = (filterType, value) => {
         setFilters((prevFilters) => ({ ...prevFilters, [filterType]: value }));
     };
+
+    // Reset all filter
     const handleReset = () => {
         setFilters({
             searchQuery: '',
@@ -72,10 +80,13 @@ const Home = () => {
     };
 
     return (
-        <div className="flex pt-3">
-            <div className="flex-shrink-0 w-1/4 p-4">
+        <div className="flex p-3 gap-5">
+            <Helmet>
+                <title>Galaxy Store | Home</title>
+            </Helmet>
+            <div className="flex-shrink-0 w-1/4 p-4 bg-gray-300">
                 <h2 className="text-lg font-semibold mb-4">Phone Name</h2>
-                {/* Search input */}
+                {/* Searching by mobile name*/}
                 <input
                     type="text"
                     placeholder="Search..."
@@ -84,7 +95,7 @@ const Home = () => {
                     onChange={(e) => handleSelectChange('searchQuery', e.target.value)}
                 />
 
-                {/* Price Range */}
+                {/*Filter by Price Range */}
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">Price Range</label>
                     <div className="flex space-x-4">
@@ -105,7 +116,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* Brand Checkbox */}
+                {/* Brand Name  Filter Checkbox */}
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">Brand</label>
                     <div className="flex flex-col space-y-2">
@@ -123,7 +134,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* Type Select */}
+                {/*Mobile Type Select Input*/}
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">Type</label>
                     <select
@@ -140,7 +151,7 @@ const Home = () => {
                     </select>
                 </div>
 
-                {/* Processor Checkbox */}
+                {/* Processor Type Checkbox */}
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">Processor</label>
                     <div className="flex flex-col space-y-2">
@@ -158,7 +169,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* Memory Select */}
+                {/*Mobile Memory Select Input*/}
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">Memory (GB)</label>
                     <select
@@ -175,7 +186,7 @@ const Home = () => {
                     </select>
                 </div>
 
-                {/* OS Checkbox */}
+                {/* OS Type Checkbox input*/}
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">Operating System</label>
                     <div className="flex flex-col space-y-2">
@@ -192,6 +203,7 @@ const Home = () => {
                         ))}
                     </div>
                 </div>
+                {/* Reset All the filter */}
                 <button
                     onClick={handleReset}
                     className="bg-gray-500 text-white p-2 rounded hover:bg-gray-600 transition duration-300"
@@ -200,7 +212,7 @@ const Home = () => {
                 </button>
             </div>
 
-            {/* Right side - Display mobiles */}
+            {/*Display mobiles */}
             <div className="flex-grow p-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {filteredMobiles?.map((mobile) => (
