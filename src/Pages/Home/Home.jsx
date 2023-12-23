@@ -206,7 +206,7 @@ const Home = () => {
                 {/* Reset All the filter */}
                 <button
                     onClick={handleReset}
-                    className="bg-gray-500 text-white p-2 rounded hover:bg-gray-600 transition duration-300"
+                    className="bg-blue-800 text-white p-2 rounded hover:bg-gray-600 transition duration-300"
                 >
                     Reset Filters
                 </button>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let axiosPublic = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://mobile-ordering-application-server-mu.vercel.app'
 })
 
 const useAxiosPublic = () => {
