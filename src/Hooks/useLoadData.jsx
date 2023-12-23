@@ -6,7 +6,7 @@ const useLoadData = () => {
     const { data: mobileCollection = [], refetch } = useQuery({
         queryKey: ['mobileCollection'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/mobiledata');
+            const res = await axiosPublic.get('/mobiles');
             return res.data;
         }
     })
